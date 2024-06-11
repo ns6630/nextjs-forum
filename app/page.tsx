@@ -1,7 +1,7 @@
-import { redirect } from 'next/navigation';
-import { Button, Flex, TextInput } from '@mantine/core';
-import { getSession, login, logout } from '@/lib';
-import Layout from '@/components/Layout';
+import { redirect } from "next/navigation";
+import { Button, Flex, TextInput } from "@mantine/core";
+import { getSession, login, logout } from "@/lib";
+import Layout from "@/components/Layout";
 
 export default async function HomePage() {
   const session = await getSession();
@@ -10,10 +10,10 @@ export default async function HomePage() {
       <section>
         <form
           action={async (formData) => {
-            'use server';
+            "use server";
 
             await login(formData);
-            redirect('/');
+            redirect("/");
           }}
         >
           <Flex
@@ -30,10 +30,10 @@ export default async function HomePage() {
         </form>
         <form
           action={async () => {
-            'use server';
+            "use server";
 
             await logout();
-            redirect('/');
+            redirect("/");
           }}
         >
           <Flex

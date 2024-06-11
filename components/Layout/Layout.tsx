@@ -1,6 +1,6 @@
-import { Container } from '@mantine/core';
-import React from 'react';
-import classes from './Layout.module.css';
+import { Container } from "@mantine/core";
+import React from "react";
+import classes from "./Layout.module.css";
 
 export interface LayoutProps {
   children: React.ReactNode;
