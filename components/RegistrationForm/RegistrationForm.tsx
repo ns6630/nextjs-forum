@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import { Button, Group, TextInput } from '@mantine/core';
-import { useForm } from 'react-hook-form';
-import { checkEmail } from '@/app/registration/actions';
+import { Button, Group, TextInput } from "@mantine/core";
+import { useForm } from "react-hook-form";
+import { checkEmail } from "@/app/registration/actions";
 
 export default function RegistrationForm() {
   // const [state, dispatch] = useReducer(reducer, { available: false, loading: false });
@@ -14,8 +14,8 @@ export default function RegistrationForm() {
     reset,
   } = useForm({
     defaultValues: {
-      email: '',
-      password: '',
+      email: "",
+      password: "",
     },
   });
 
@@ -25,9 +25,9 @@ export default function RegistrationForm() {
         type="email"
         label="Email"
         error={errors.email?.message}
-        {...register('email', {
+        {...register("email", {
           validate: async (value) => {
-            if (!/^\S+@\S+$/.test(value)) return 'Invalid email';
+            if (!/^\S+@\S+$/.test(value)) return "Invalid email";
             return checkEmail(value);
           },
         })}
@@ -36,14 +36,12 @@ export default function RegistrationForm() {
         type="password"
         label="Password"
         error={errors.password?.message}
-        {...register('password', {
-          minLength: { value: 4, message: 'Password must be at least 4 characters.' },
+        {...register("password", {
+          minLength: { value: 4, message: "Password must be at least 4 characters." },
         })}
       />
       <Group>
-        <Button type="submit">
-          Register
-        </Button>
+        <Button type="submit">Register</Button>
         <Button disabled={!isDirty} onClick={() => reset()}>
           Reset
         </Button>
